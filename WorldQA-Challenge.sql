@@ -41,4 +41,11 @@ Select name, surfacearea from country order by surfacearea desc limit 10;
 
 Select name, population from city where Countrycode='JPN' order by population desc limit 5;
 
-sele
+SET SQL_SAFE_UPDATES = 0;
+UPDATE country
+SET HeadOfState='Elizabeth II'
+WHERE HeadOfState='Elisabeth II';
+
+SELECT Name, Code
+FROM country
+WHERE HeadOfState='Elizabeth II';
