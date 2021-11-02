@@ -1,0 +1,152 @@
+Using COUNT, get the number of cities in the USA.
+select * from country;
+select * from City;
+Select count(*) from city where Countrycode='USA';
+= 274
+
+
+Find out the population and life expectancy for people in Argentina.
+Select population, lifeexpectancy from country where name='argentina';
+37032000
+75.1
+
+
+Using IS NOT NULL, ORDER BY, and LIMIT, which country has the highest life expectancy?
+select LifeExpectancy, name
+from country
+where LifeExpectancy=(
+select max(LifeExpectancy) from country) is not null
+order by LifeExpectancy desc limit 1;
+83.5 ANDORRA
+
+
+Using JOIN ... ON, find the capital city of Spain.
+select c2.name from country c1 join city c2 on c1.capital=c2.id where c1.name='spain';
+madrid
+
+
+Using JOIN ... ON, list all the languages spoken in the Southeast Asia region.
+select CL.language from countrylanguage CL join country C on c.code=CL.countrycode where C.region='southeast asia';
+Chinese
+English
+Malay
+Malay-English
+Bali
+Banja
+Batakki
+Bugi
+Javanese
+Madura
+Malay
+Minangkabau
+Sunda
+Chinese
+Khmer
+TÂšam
+Vietnamese
+Lao
+Lao-Soung
+Mon-khmer
+Thai
+Burmese
+Chin
+Kachin
+Karen
+Kayah
+Mon
+Rakhine
+Shan
+Chinese
+Dusun
+English
+Iban
+Malay
+Tamil
+Bicol
+Cebuano
+Hiligaynon
+Ilocano
+Maguindanao
+Maranao
+Pampango
+Pangasinan
+Pilipino
+Waray-waray
+Chinese
+Malay
+Tamil
+Chinese
+Khmer
+Kuy
+Lao
+Malay
+Thai
+Portuguese
+Sunda
+Chinese
+Khmer
+Man
+Miao
+Muong
+Nung
+Thai
+Tho
+Vietnamese
+
+Using a single query, list 25 cities around the world that start with the letter F.
+select name from city where name like 'f%' limit 25;
+Fagatogo
+Florencio Varela
+Formosa
+Francistown
+Fortaleza
+Feira de Santana
+Franca
+FlorianÃ³polis
+Foz do IguaÃ§u
+Ferraz de Vasconcelos
+Francisco Morato
+Franco da Rocha
+Fuenlabrada
+Faridabad
+Firozabad
+Farrukhabad-cum-Fatehgarh
+Faizabad
+Fatehpur
+Firenze
+Foggia
+Ferrara
+ForlÃ¬
+Fukuoka
+Funabashi
+Fukuyama
+
+Using COUNT and JOIN ... ON, get the number of cities in China.
+select count(*) FROM city c1 JOIN country c2 ON c2.code=c1.countrycode WHERE c2.name like 'china';
+363
+
+Using IS NOT NULL, ORDER BY, and LIMIT, which country has the lowest population? Discard non-zero populations.
+select Population, name
+from country
+where LifeExpectancy=(
+select min(population) from country) is not null
+order by population limit 1;
+6000	Saint Helena
+
+
+Using aggregate functions, return the number of countries the database contains.
+select distinct count(code) from country;
+239
+
+
+What are the top ten largest countries by area?
+List the five largest cities by population in Japan.
+List the names and country codes of every country with Elizabeth II as its Head of State. You will need to fix the mistake first!
+List the top ten countries with the smallest population-to-area ratio. Discard any countries with a ratio of 0.
+List every unique world language.
+List the names and GNP of the world's top 10 richest countries.
+List the names of, and number of languages spoken by, the top ten most multilingual countries.
+List every country where over 50% of its population can speak German.
+Which country has the worst life expectancy? Discard zero or null values.
+List the top three most common government forms.
+How many countries have gained independence since records began?
